@@ -32,3 +32,4 @@ $(document).ready(function() {
         alert("This is a demo.\n :-)");
     });
 });
+// This file is for the profile page and is used to toggle the dropdown menu for the user's profile information

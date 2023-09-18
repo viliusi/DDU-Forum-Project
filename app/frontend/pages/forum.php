@@ -25,3 +25,4 @@
         </div>
     </div>
 </div>
+<!--This file is the channels file. It is included in all the pages in the forum. It contains the channels of the page.-->

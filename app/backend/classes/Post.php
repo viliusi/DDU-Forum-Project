@@ -32,4 +32,5 @@ class Post
             return $post->first();
         }
     }
+    // This file creates the post and gets all the posts in a channel and the post by id.
 }

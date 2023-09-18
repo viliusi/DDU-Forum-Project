@@ -45,3 +45,4 @@
 
   </div>
 </nav>
+<!--This file is the navbar file. It is included in all the pages. It contains the navbar of the page.-->

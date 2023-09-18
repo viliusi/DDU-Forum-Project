@@ -26,3 +26,4 @@
     <input type="submit" value="Update Profile">
   </form>
 </div>
+<!--This file is the update-account file. It is included in profile. It contains the update-account of the page and the form to update-account.-->

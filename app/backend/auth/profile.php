@@ -7,5 +7,5 @@ if (! $user->isLoggedIn())
 }
 
 $data = $user->data();
-
+// This file checks if the user is logged in and gets the user's data.
 

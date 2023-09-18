@@ -23,3 +23,4 @@
         </div>
     </div>
 </div>
+<!--This file is the posts file. It is included in all the pages in the forum. It contains the posts of the page.-->

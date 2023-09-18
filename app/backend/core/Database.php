@@ -23,7 +23,7 @@ class Database
         {
             die($e->getMessage());
         }
-    }
+    } // This is the constructor method. It is private so that it can't be instantiated from outside the class. It creates a new PDO object and stores it in the $_pdo property.
 
     public static function getInstance()
     {
@@ -33,7 +33,7 @@ class Database
         }
 
         return self::$_instance;
-    }
+    } // This is the getInstance method. It checks if the $_instance property is set. If it isn't, it creates a new Database object and stores it in the $_instance property. It then returns the $_instance property.
 
     public function query($sql, $params = array())
     {
@@ -64,7 +64,9 @@ class Database
         }
 
         return $this;
-    }
+    } // This is the query method. It takes a SQL statement and an array of parameters as arguments. It prepares the SQL statement and stores it in the $_query property. 
+    //It then binds the parameters to the SQL statement and executes it. If the SQL statement executes successfully, it stores the results in the $_results property and stores the number of results in the $_count property. 
+    //If the SQL statement fails to execute, it sets the $_error property to true. It then returns the Database object.
 
     public function action($action, $table, $where = array())
     {
@@ -88,17 +90,17 @@ class Database
         }
 
         return false;
-    }
+    } // This is the action method. It takes an action, a table, and an array of parameters as arguments. It checks if the number of parameters is equal to 3.
 
     public function get($table, $where)
     {
         return $this->action('SELECT *', $table, $where);
-    }
+    } 
 
     public function delete($table, $where)
     {
         return $this->action('DELETE', $table, $where);
-    }
+    } 
 
     public function insert($table, $fields = array())
     {
@@ -129,7 +131,7 @@ class Database
         }
 
         return false;
-    }
+    } // This is the insert method. It takes a table and an array of fields as arguments. It checks if the number of fields is greater than 0. 
 
     public function update($table, $id, $fields)
     {
@@ -156,7 +158,7 @@ class Database
         }
 
         return false;
-    }
+    } // This is the update method. It takes a table, an id, and an array of fields as arguments. It creates a string of fields and values to update and stores it in the $set variable.
 
     public function results()
     {

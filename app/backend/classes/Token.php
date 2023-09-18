@@ -17,5 +17,5 @@ class Token
         }
 
         return false;
-    }
+    } // This method checks if the token exists in the session and if it matches the token that was passed in.
 }

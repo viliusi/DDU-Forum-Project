@@ -16,3 +16,4 @@
         </div>
     </div>
 </div>
+<!--This file is the comments file. It is included in all the pages. It contains the comments of the page.-->

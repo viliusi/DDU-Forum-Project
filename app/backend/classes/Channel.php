@@ -21,4 +21,5 @@ class Channel
             return $ret->first();
         }
     }
+    // This file gets the channels and the channel by id.
 }

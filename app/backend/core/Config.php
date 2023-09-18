@@ -21,5 +21,5 @@ class Config
         }
 
         return false;
-    }
+    } // This method gets the configuration from the config array.
 }

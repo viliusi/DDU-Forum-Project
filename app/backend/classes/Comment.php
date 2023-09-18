@@ -15,4 +15,5 @@ class Comment
         //return list of comments
         return $comments;
     }
+    // This file creates the comment and gets all the comments in a post.
 }

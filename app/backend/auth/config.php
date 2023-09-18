@@ -1,7 +1,6 @@
 <?php
 
 $remoteSecret = parse_ini_file('../yourSecrets.ini');
-$localSecret = parse_ini_file('../secrets.ini');
 
 $current = $remoteSecret;
 
@@ -38,4 +37,5 @@ $GLOBALS['config'] = array(
         'session_name'  => 'user',
         'token_name'    => 'csrf_token'
     ),
+    // This file is used for storing your secrets. Because it is outside of the public directory, it is not accessible from the browser.
 );
