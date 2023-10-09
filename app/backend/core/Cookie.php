@@ -28,4 +28,5 @@ class Cookie
         unset($_COOKIE[$name]);
         setcookie($name, '', time() -3600, '/');
     }
+    // This method checks if the cookie exists and if it does, it returns the value of the cookie. If it doesn't exist, it returns false.
 }

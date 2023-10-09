@@ -56,4 +56,5 @@ if (Input::exists()) {
             echo '<div class="alert alert-danger"><strong></strong>' . cleaner($validation->error()) . '</div>';
         }
     }
+    // If the form is submited then it checks if the csrf_token is valid. If it is, it validates the name, username, current_password, new_password and confirm_new_password fields.
 }

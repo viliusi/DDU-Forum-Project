@@ -18,3 +18,4 @@ if (Session::exists('register-error')) {
 if (Session::exists('login-success')) {
   echo '<div class="alert alert-success"><strong></strong>' . Session::flash('login-success') . '</div>';
 }
+// This file is the messages file. It is included in all the pages. It contains the messages of the page.

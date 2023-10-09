@@ -36,7 +36,7 @@ if (Input::exists()) {
                     'username'  => Input::get('username'),
                     'password'  => Password::hash(Input::get('password')),
                     'name'      => Input::get('name'),
-                    'joined'    => date('Y-m-d H:i:s'),
+                    'joined'    => date('Y-m-d H:i:s'), //AMERICAN DATE FORMAT CHANGE TO EUROPEAN ONE DAY!
                     'group_id'    => 1
                 ));
                 Session::flash('register-success', 'Thanks for registering! You can login now.');
@@ -50,4 +50,5 @@ if (Input::exists()) {
             }
         }
     }
+    // This file checks if the form is submitted. If it is, it checks if the csrf_token is valid. If it is, it validates the name, username, password and password_again fields.
 }

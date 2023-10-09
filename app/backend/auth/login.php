@@ -30,4 +30,5 @@ if (Input::exists()) {
             }
         }
     }
+    // This file checks if the form is submitted. If it is, it checks if the csrf_token is valid. If it is, it validates the username and password fields.
 }

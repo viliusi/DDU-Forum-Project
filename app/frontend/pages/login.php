@@ -18,3 +18,4 @@
     <input type="submit" value="Log In">
   </form>
 </div>
+<!--This file is the login file. It is included in all the pages. It contains the login of the page and the form to login.-->

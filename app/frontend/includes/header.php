@@ -32,3 +32,4 @@
     <h3 align="right">Hello, <?php echo $user->data()->name; ?></h3>
   <?php endif; ?>
 </div>
+<!--This file is the header file. It is included in all the pages. It contains the header of the page.-->

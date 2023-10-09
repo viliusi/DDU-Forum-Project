@@ -110,7 +110,7 @@ class Validation
         }
 
         return $this;
-    }
+    } // This method checks if the validation passed or not. If it didn't pass, it adds the error to the errors array.
 
     private function addError($error)
     {
@@ -130,10 +130,10 @@ class Validation
     public function passed()
     {
         return $this->_passed;
-    }
+    } // This method returns the errors array.
 
     public function optional()
     {
         return $this->_optional;
-    }
+    } // This method returns the errors array.
 }

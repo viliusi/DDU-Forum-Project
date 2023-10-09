@@ -35,3 +35,4 @@
         </div>
       </div>
     </div>
+    <!--This file is the profile file. It is included in all the pages. It contains the profile of the page.-->

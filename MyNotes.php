@@ -1,4 +1,5 @@
 <?php
+//Only notes maybe delete later
 
 //Basic PHP Syntax and Data Types
 $age = 25;

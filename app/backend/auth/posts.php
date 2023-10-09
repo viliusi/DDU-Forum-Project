@@ -19,3 +19,4 @@ if (Input::get('submit')) {
     Post::create($post);
     Redirect::to('channel.php?id=' . $channel_id);
 }
+// This file gets the user's data, the channel's data and the posts in the channel. If the form is submitted, it creates the post and redirects the user to the channel page.

@@ -13,3 +13,4 @@
         <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
     </form>
 </div>
+<!--This file is the create-post file. It is included in all the pages. It contains the create-post of the page and the form to create a post.-->

@@ -33,7 +33,7 @@ class User
         {
             $this->find($user);
         }
-    }
+    } // This method checks if the user exists in the database and sets the _isLoggedIn property to true if it does.
 
     public function update($fields = array(), $id = null)
     {
@@ -46,7 +46,7 @@ class User
         {
             throw new Exception('Unable to update the user.');
         }
-    }
+    } // This method updates the user's data in the database.
 
     public function create($fields = array())
     {
@@ -54,7 +54,7 @@ class User
         {
             throw new Exception("Unable to create the user.");
         }
-    }
+    } // This method creates a new user in the database.
 
     public function find($user = null)
     {
@@ -70,7 +70,7 @@ class User
                 return true;
             }
         }
-    }
+    } // This method finds the user in the database.
 
     public function login($username = null, $password = null, $remember = false)
     {
@@ -114,7 +114,7 @@ class User
         }
 
         return false;
-    }
+    } // This method logs the user in. It checks if the user exists in the database and if the password matches the one in the database.
 
     public function hasPermission($key)
     {
@@ -131,7 +131,7 @@ class User
         }
 
         return false;
-    }
+    } // This method checks if the user has the permission to do something.
 
     public function exists()
     {
@@ -156,7 +156,7 @@ class User
         return $this->_isLoggedIn;
     }
 
-    public function deleteMe()
+    public function deleteMe() // Opposit of ReadME
     {
         if ($this->isLoggedIn())
         {

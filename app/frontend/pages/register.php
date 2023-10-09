@@ -21,3 +21,4 @@
     <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
   </form>
 </div>
+<!--This file is the register file. It is included in all the pages. It contains the register of the page and the form to register.-->

@@ -17,5 +17,6 @@ class Redirect
             header('Location: ' . $location);
             exit();
         }
-    }
+    } // This is the to method. It takes a location as a parameter. It then checks if the location is numeric. If it is, it checks if the location is 404. If it is, it sets the header to 404 and includes the 404 page. 
+    //It then exits the script. If it isn't, it sets the header to the location and exits the script. If the location is not numeric, it sets the header to the location and exits the script.
 }
