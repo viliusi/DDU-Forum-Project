@@ -1,8 +1,8 @@
 <?php
 
-$remoteSecret = parse_ini_file('../yourSecrets.ini');
+$remoteSecret = parse_ini_file('yourSecrets.ini');
 
-$current = $localSecret;
+$current = $remoteSecret;
 
 $GLOBALS['config'] = array(
 
