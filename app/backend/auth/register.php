@@ -6,12 +6,6 @@ if (Input::exists()) {
         $validate = new Validation();
 
         $validation = $validate->check($_POST, array(
-            'name' => array(
-                'required' => true,
-                'min' => 2,
-                'max' => 50
-            ),
-
             'username' => array(
                 'required' => true,
                 'min' => 2,
@@ -35,7 +29,6 @@ if (Input::exists()) {
                 $user->create(array(
                     'username'  => Input::get('username'),
                     'password'  => Password::hash(Input::get('password')),
-                    'name'      => Input::get('name'),
                     'joined'    => date('Y-m-d H:i:s'), //AMERICAN DATE FORMAT CHANGE TO EUROPEAN ONE DAY!
                     'group_id'    => 1
                 ));

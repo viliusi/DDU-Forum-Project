@@ -156,7 +156,7 @@ class User
         return $this->_isLoggedIn;
     }
 
-    public function deleteMe() // Opposit of ReadME
+    public function deleteMe() // Opposite of ReadME
     {
         if ($this->isLoggedIn())
         {

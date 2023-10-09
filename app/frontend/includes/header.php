@@ -29,7 +29,7 @@
   <h1>My First <?php appName(); ?></h1>
   <p>Resize this responsive page to see the effect!</p>
   <?php if ($user->isLoggedIn()) : ?>
-    <h3 align="right">Hello, <?php echo $user->data()->name; ?></h3>
+    <h3 align="right">Hello, <?php echo $user->data()->username; ?></h3>
   <?php endif; ?>
 </div>
 <!--This file is the header file. It is included in all the pages. It contains the header of the page.-->
