@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" href="index.php">App Name</a>
+  <!-- Add logo picture -->
+  <img src="/app/frontend/assets/img/UWU_games-logos_transparent.svg" alt="" width="30">
+  <a class="navbar-brand" href="index.php">UWU games</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
