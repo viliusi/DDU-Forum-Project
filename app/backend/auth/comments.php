@@ -55,7 +55,7 @@ if (Input::exists()) {
         $validate = new Validation();
 
         $validation = $validate->check($_POST, array(
-            'user_id' => array(
+            'comment_user_id' => array(
                 'required' => true,
             ),
 
@@ -70,12 +70,9 @@ if (Input::exists()) {
 
         if ($validate->passed()) {
             try {
-                if ($comment_id->user_id !== $user_id) {
-                    throw new Exception("Can't delete a comment you didn't create.");
-                } else {
-                    echo 'test';
-                    $db = Database::getInstance()->delete('comments', ['id', '=', $comment_id]);
-                }
+
+                Comment::deleteComment(Input::get('comment_id'), $user->data()->uid);
+
                 Redirect::to('comments.php?post_id=' . Input::get('post_id'));
             } catch (Exception $e) {
                 die($e->getMessage());

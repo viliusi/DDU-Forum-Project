@@ -27,11 +27,20 @@ class Comment
 
     public static function deleteComment($comment_id, $user_id)
     {
-        if ($comment_id->user_id !== $user_id) {
+        $comment = self::getCommentById($comment_id);
+
+        if ($comment->results()[0]->user_id !== $user_id) {
             throw new Exception("Can't delete a comment you didn't create.");
         }
         else {
-            $db = Database::getInstance()->delete('comments', ['id', '=', $comment_id]);
+            $db = Database::getInstance()->delete('comments', ['comment_id', '=', $comment_id]);
         }
+    }
+
+    public static function getCommentById($comment_id)
+    {
+        $db = Database::getInstance()->get('comments', ['comment_id', '=', $comment_id]);
+
+        return $db;
     }
 }

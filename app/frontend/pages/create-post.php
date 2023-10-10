@@ -9,6 +9,10 @@
             <label for="description">Description :</label>
             <input type="text" class="form-control" id="content" placeholder="Enter a description" name="content" value="<?php echo escape(Input::get('content')); ?>">
         </div>
+        <div class="form-group">
+            <label for="description">Images :</label>
+            <input type="text" class="form-control" id="image" placeholder="Insert an image source link (optional)" name="image" value="<?php echo escape(Input::get('image')); ?>">
+        </div>
         <input type="submit" class="btn-register" value="Create a post">
         <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
     </form>

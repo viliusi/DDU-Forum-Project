@@ -4,6 +4,7 @@ require_once 'app/backend/core/Init.php';
 if (Input::exists()) {
     if (Token::check(Input::get('csrf_token'))) {
         $validate = new Validation();
+        echo '1';
 
         $validation = $validate->check($_POST, array(
             'title' => array(
@@ -17,13 +18,21 @@ if (Input::exists()) {
                 'min' => 2,
                 'max' => 255,
             ),
+
+            'image' => array(
+                'required' => false,
+                'min' => 2,
+                'max' => 255,
+            ),
         ));
 
         if ($validate->passed()) {
             try {
+                echo '2';
                 Post::create(array(
                     'title'  => Input::get('title'),
                     'content'  => Input::get('content'),
+                    'image'  => Input::get('image'),
                     'user_id'      => $user->data()->uid,
                     'channel_id'    => Input::get('channel_id'),
                 ));

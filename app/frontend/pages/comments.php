@@ -7,6 +7,13 @@
 
             <p> <?php echo $post->content; ?> </p>
 
+            <?php if ($post->image !== null) { ?>
+                <img src="<?php echo $post->image; ?>" alt="Image" width="80%">
+            <?php } ?>
+
+            <br>
+            <hr>
+
             <h3>The Comment Section</h3>
 
             <form action="" method="post">
@@ -24,8 +31,8 @@
                 foreach ($comments->results() as $c) {
                     echo '<div class="alert alert-info">' . $c->created_at . ' ' . '<strong>' . (new User($c->user_id))->data()->username . '</strong>: ' . $c->content . '</div>';
                     ?> <form action="" method="post">
-                    <input type="hidden" name="user_id" value="<?php echo (new User($c->user_id))->data()->username ?>">
-                    <input type="hidden" name="comment_id" value="<?php echo $c->id; ?>">
+                    <input type="hidden" name="comment_user_id" value="<?php echo (new User($c->user_id))->data()->username ?>">
+                    <input type="hidden" name="comment_id" value="<?php echo $c->comment_id; ?>">
                     <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
                     <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
                     <input type="submit" class="btn-register" value="Delete" name="delete">
