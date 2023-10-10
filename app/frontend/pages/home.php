@@ -1,9 +1,7 @@
-<div class="container" style="margin-top:30px">
+<div class="container" style="margin-top:0px">
     <div class="row">
-      <div class="col-sm-4">
-        <h2>About Me</h2>
-        <h5>Photo of me:</h5>
-        <div class="fakeimg">Fake Image</div>
+      <div class="col-sm-8">
+        <div class="fakeimg">Fake Image</div> <!-- Boks. -->
         <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
         <h3>Some Links</h3>
         <p>Lorem ipsum dolor sit ame.</p>
@@ -23,18 +21,56 @@
         </ul>
         <hr class="d-sm-none">
       </div>
-      <div class="col-sm-8">
-        <h2>TITLE HEADING</h2>
-        <h5>Title description, Sep 18, 2023</h5>
-        <div class="fakeimg">Fake Image</div>
-        <p>Some text..</p>
-        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        <br>
-        <h2>TITLE HEADING</h2>
-        <h5>Title description, Sep 18, 2023</h5>
-        <div class="fakeimg">Fake Image</div>
-        <p>Some text..</p>
-        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      <div class="col-sm-4">
+        <div class="fakeimg">Fake Image</div> <!-- Boks. -->
+        <div class="table-container">
+  <table class="table-scroll">
+    <thead>
+      <tr>
+        <th>Head 1</th>
+      </tr>
+    </thead>
+    <tbody class="body-half-screen">
+      <tr>
+        <td>Row 1</td>
+      </tr>
+      <tr>
+        <td>Row 2</td>
+      </tr>
+      <tr>
+        <td>Row 3</td>
+      </tr>
+      <tr>
+        <td>Row 4</td>
+      </tr>
+      <tr>
+        <td>Row 5</td>
+      </tr>
+      <tr>
+        <td>Row 6</td>
+      </tr>
+      <tr>
+        <td>Row 7</td>
+      </tr>
+      <tr>
+        <td>Row 8</td>
+      </tr>
+      <tr>
+        <td>Row 9</td>
+      </tr>
+      <tr>
+        <td>Row 10</td>
+      </tr>
+      <tr>
+        <td>Row 11</td>
+      </tr>
+      <tr>
+        <td>Row 12</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
       </div>
     </div>
   </div>
