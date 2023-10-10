@@ -38,8 +38,44 @@ if (Input::exists()) {
                     'user_id'  => $user->data()->uid,
                     'post_id'  => Input::get('post_id'),
                     'content'  => Input::get('content'),
-                    'created_at'=> date('Y-m-d H:i:s'), //AMERICAN DATE FORMAT CHANGE TO EUROPEAN ONE DAY!
+                    'created_at' => date('Y-m-d H:i:s'), //AMERICAN DATE FORMAT CHANGE TO EUROPEAN ONE DAY!
                 ));
+                Redirect::to('comments.php?post_id=' . Input::get('post_id'));
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        } else {
+            foreach ($validate->errors() as $error) {
+                echo '<div class="alert alert-danger"><strong>Validation error</strong>' . cleaner($error) . '</div>';
+            }
+        }
+    }
+
+    if (Input::get('delete')) {
+        $validate = new Validation();
+
+        $validation = $validate->check($_POST, array(
+            'user_id' => array(
+                'required' => true,
+            ),
+
+            'post_id' => array(
+                'required' => true,
+            ),
+
+            'comment_id' => array(
+                'required' => true,
+            ),
+        ));
+
+        if ($validate->passed()) {
+            try {
+                if ($comment_id->user_id !== $user_id) {
+                    throw new Exception("Can't delete a comment you didn't create.");
+                } else {
+                    echo 'test';
+                    $db = Database::getInstance()->delete('comments', ['id', '=', $comment_id]);
+                }
                 Redirect::to('comments.php?post_id=' . Input::get('post_id'));
             } catch (Exception $e) {
                 die($e->getMessage());

@@ -25,13 +25,13 @@ class Comment
     }
     // This file creates the comment and gets all the comments in a post.
 
-    public static function DeleteComment($comment_id, $user_id)
+    public static function deleteComment($comment_id, $user_id)
     {
         if ($comment_id->user_id !== $user_id) {
             throw new Exception("Can't delete a comment you didn't create.");
         }
         else {
             $db = Database::getInstance()->delete('comments', ['id', '=', $comment_id]);
-        }   
+        }
     }
 }
