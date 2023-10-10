@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Add logo picture -->
-  <img src="/app/frontend/assets/img/UWU_games-logos_transparent.svg" alt="" width="30">
-  <a class="navbar-brand" href="index.php">UWU games</a>
+  <a href="index.php"><img src="/app/frontend/assets/img/UWU_games-logos_transparent_White.svg" alt="" width="30" style="margin-right: 15px;">
+  <h class="navbar-brand">UWU games</h></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -16,12 +16,11 @@
         </li>
       <?php endif; ?>
     </ul>
-
     <?php if ($user->isLoggedIn()) : ?>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" href="profile.php">
-            <span class="glyphicon glyphicon-user"></span> Profile
+            <span class="glyphicon glyphicon-user"></span> <?php echo $user->data()->username; ?>
           </a>
         </li>
         <li class="nav-item">

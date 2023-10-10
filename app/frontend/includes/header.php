@@ -25,11 +25,11 @@
 
 <body>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
+<!--<div class="jumbotron text-center" style="margin-bottom:0; height: 225px;">
   <h1>UWU games</h1>
-  <p>Resize this responsive page to see the effect!</p>
+  <p>Most epic games forum!</p>
   <?php if ($user->isLoggedIn()) : ?>
     <h3 align="right">Hello, <?php echo $user->data()->username; ?></h3>
   <?php endif; ?>
-</div>
+</div>-->
 <!--This file is the header file. It is included in all the pages. It contains the header of the page.-->
