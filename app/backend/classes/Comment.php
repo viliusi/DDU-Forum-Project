@@ -37,6 +37,18 @@ class Comment
         }
     }
 
+    public static function deletePost($post_id, $user_id)
+    {
+        $post = Post::getPostById($post_id);
+
+        if ($post->results()[0]->user_id !== $user_id) {
+            throw new Exception("Can't delete a post you didn't create.");
+        }
+        else {
+            $db = Database::getInstance()->delete('posts', ['post_id', '=', $post_id]);
+        }
+    }
+
     public static function getCommentById($comment_id)
     {
         $db = Database::getInstance()->get('comments', ['comment_id', '=', $comment_id]);

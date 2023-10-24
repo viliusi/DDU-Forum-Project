@@ -4,7 +4,6 @@ require_once 'app/backend/core/Init.php';
 if (Input::exists()) {
     if (Token::check(Input::get('csrf_token'))) {
         $validate = new Validation();
-        echo '1';
 
         $validation = $validate->check($_POST, array(
             'title' => array(
@@ -28,7 +27,6 @@ if (Input::exists()) {
 
         if ($validate->passed()) {
             try {
-                echo '2';
                 Post::create(array(
                     'title'  => Input::get('title'),
                     'content'  => Input::get('content'),

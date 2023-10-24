@@ -16,7 +16,12 @@ $comments = Comment::getAllComments($post_id);
 //If the user is logged in and the post_id is set, it gets the post and all the comments for that post. The comments are then displayed in the comments.php file.
 
 if (Input::exists()) {
-    if (Token::check(Input::get('csrf_token'))) {
+    var_dump($_POST);
+    $pcomment = Input::get('post_comment');
+    $cdelete = Input::get('comment_delete');
+    $pdelete = Input::get('post_delete');
+
+    if (isset($pcomment)) {
         $validate = new Validation();
 
         $validation = $validate->check($_POST, array(
@@ -51,7 +56,7 @@ if (Input::exists()) {
         }
     }
 
-    if (Input::get('delete')) {
+    if (isset($cdelete)) {
         $validate = new Validation();
 
         $validation = $validate->check($_POST, array(
@@ -80,6 +85,34 @@ if (Input::exists()) {
         } else {
             foreach ($validate->errors() as $error) {
                 echo '<div class="alert alert-danger"><strong>Validation error</strong>' . cleaner($error) . '</div>';
+            }
+        }
+
+        if (isset($pdelete)) {
+            $validate = new Validation();
+
+            $validation = $validate->check($_POST, array(
+                'post_id' => array(
+                    'required' => true,
+                ),
+
+                'post_user_id' => array(
+                    'required' => true,
+                ),
+            ));
+
+            if ($validate->passed()) {
+                try {
+                    Comment::deletePost(Input::get('post_id'), $user->data()->uid);
+
+                    Redirect::to('comments.php?post_id=' . Input::get('post_id'));
+                } catch (Exception $e) {
+                    die($e->getMessage());
+                }
+            } else {
+                foreach ($validate->errors() as $error) {
+                    echo '<div class="alert alert-danger"><strong>Validation error</strong>' . cleaner($error) . '</div>';
+                }
             }
         }
     }
