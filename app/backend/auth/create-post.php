@@ -3,6 +3,12 @@ require_once 'app/backend/core/Init.php';
 if(!$user->isLoggedIn()) {
     Redirect::to('login.php');
 }
+
+$postid = Input::get('post_id');
+$channelid = Input::get('channel_id');
+echo $postid;
+echo $channelid;
+
 if (Input::exists()) {
     if (Token::check(Input::get('csrf_token'))) {
         $validate = new Validation();
@@ -29,15 +35,25 @@ if (Input::exists()) {
 
         if ($validate->passed()) {
             try {
-                Post::create(array(
-                    'title'  => Input::get('title'),
-                    'content'  => Input::get('content'),
-                    'image'  => Input::get('image'),
-                    'user_id'      => $user->data()->uid,
-                    'channel_id'    => Input::get('channel_id'),
-                ));
-
-                Session::flash('create-post-success', 'Thanks for posting.');
+                if (isset($channelid))
+                {
+                    echo "create";
+                    Post::create(array(
+                        'title'  => Input::get('title'),
+                        'content'  => Input::get('content'),
+                        'image'  => Input::get('image'),
+                        'user_id'      => $user->data()->uid,
+                        'channel_id'    => Input::get('channel_id'),
+                    ));
+                    Session::flash('create-post-success', 'Thanks for posting.');
+                }
+                else if (isset($postid))
+                {
+                    echo "edit";
+                    Post::edit($postid, Input::get('title'), Input::get('content'), Input::get('image'));
+                    Session::flash('create-post-success', 'Thanks for editing post.');
+                }
+                
                 Redirect::to('posts.php?id=' . Input::get('channel_id'));
             } catch (Exception $e) {
                 die($e->getMessage());

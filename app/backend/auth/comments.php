@@ -17,6 +17,7 @@ if (Input::exists()) {
     $pcomment = Input::get('post_comment');
     $cdelete = Input::get('comment_delete');
     $pdelete = Input::get('post_delete');
+    $pedit = Input::get('post_edit');
 
     if (isset($pcomment)) {
         $validate = new Validation();

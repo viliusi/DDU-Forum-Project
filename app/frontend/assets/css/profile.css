@@ -17,7 +17,7 @@
 }
 
 .table-user-information > tbody > tr {
-    border-top: 1px solid rgb(221, 221, 221);
+    border-top: 1px solid rgb(219, 0, 0);
 }
 
 .table-user-information > tbody > tr:first-child {
@@ -28,27 +28,69 @@
 .table-user-information > tbody > tr > td {
     border-top: 0;
 }
-.toppad
-{margin-top:20px;
+.toppad{
+    margin-top:20px;
 }
-/* This file is for styling the profile page */
 
-/* Container for the table */
-.table-container {
-    max-height: 300px; /* Set a maximum height for the container */
-    overflow-y: auto; /* Enable vertical scrolling if content overflows */
-  }
-  
-  /* Style the table */
-  .table-scroll {
-    width: 100%; /* Table should take 100% width of its container */
-    border-collapse: collapse; /* Remove cell spacing and borders */
-  }
-  
-  /* Style table headers and cells */
-  .table-scroll th, .table-scroll td {
-    padding: 8px; /* Add padding for better readability */
-    text-align: left; /* Adjust text alignment as needed */
-    border-bottom: 1px solid #ddd; /* Add a bottom border to cells */
-  }
-  
+.fixed_header{
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.fixed_header tbody{
+    display:block;
+    width: 100%;
+    overflow: auto;
+    height: 600px;
+}
+
+.fixed_header thead tr {
+    display: block;
+}
+
+.fixed_header thead {
+    background: black;
+    color:#fff;
+}
+
+.fixed_header th, .fixed_header td {
+    padding: 5px;
+    text-align: center;
+    width: 200px;
+}
+
+
+
+.alternative_fixed_header{
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.alternative_fixed_header tbody{
+    display:block;
+    width: 100%;
+    overflow: auto;
+    height: 600px;
+}
+
+.alternative_fixed_header thead tr {
+    display: block;
+}
+
+.alternative_fixed_header thead {
+    background: black;
+    color:#fff;
+}
+
+.alternative_fixed_header th, .fixed_header td {
+    padding: 5px;
+    text-align: center;
+    width: 200px;
+}
+.box_container{
+    border: 1px solid #ccc;
+    padding: 10px; /* Add padding to the inside of the border */
+    margin: 10px; /* Add margin to the outside of the border */
+}

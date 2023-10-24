@@ -11,10 +11,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
 
-  <!-- Custom Assets 
+  <!-- Custom Assets -->
 
-  <link rel="stylesheet" href="<?php //echo FRONTEND_ASSET . 'css/profile.css'; ?>">
--->
+  <link rel="stylesheet" href="<?php echo FRONTEND_ASSET . 'css/profile.css'; ?>">
+
   <style>
     .fakeimg {
       height: 200px;
@@ -25,11 +25,4 @@
 
 <body>
 
-<!--<div class="jumbotron text-center" style="margin-bottom:0; height: 225px;">
-  <h1>UWU games</h1>
-  <p>Most epic games forum!</p>
-  <?php if ($user->isLoggedIn()) : ?>
-    <h3 align="right">Hello, <?php echo $user->data()->username; ?></h3>
-  <?php endif; ?>
-</div>-->
-<!--This file is the header file. It is included in all the pages. It contains the header of the page.-->
+

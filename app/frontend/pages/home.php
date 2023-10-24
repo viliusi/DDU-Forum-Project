@@ -1,38 +1,191 @@
-<div class="container" style="margin-top:0px">
+<div style="margin-top:0px">
     <div class="row">
       <div class="col-sm-8">
-        <div class="fakeimg">Fake Image</div> <!-- Boks. -->
-        <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-        <h3>Some Links</h3>
-        <p>Lorem ipsum dolor sit ame.</p>
         <ul class="nav nav-pills flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Active</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
+          <div class="table-container">
+  <table class="alternative_fixed_header">
+    <thead>
+      <tr>
+        <th><h3>Popular Posts</h3></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Row 1</td>
+      </tr>
+      <tr>
+        <td>Row 2</td>
+      </tr>
+      <tr>
+        <td>Row 3</td>
+      </tr>
+      <tr>
+        <td>Row 4</td>
+      </tr>
+      <tr>
+        <td>Row 5</td>
+      </tr>
+      <tr>
+        <td>Row 6</td>
+      </tr>
+      <tr>
+        <td>Row 7</td>
+      </tr>
+      <tr>
+        <td>Row 8</td>
+      </tr>
+      <tr>
+        <td>Row 9</td>
+      </tr>
+      <tr>
+        <td>Row 10</td>
+      </tr>
+      <tr>
+        <td>Row 11</td>
+      </tr>
+      <tr>
+        <td>Row 12</td>
+      </tr>
+      <td>Row 1</td>
+      </tr>
+      <tr>
+        <td>Row 2</td>
+      </tr>
+      <tr>
+        <td>Row 3</td>
+      </tr>
+      <tr>
+        <td>Row 4</td>
+      </tr>
+      <tr>
+        <td>Row 5</td>
+      </tr>
+      <tr>
+        <td>Row 6</td>
+      </tr>
+      <tr>
+        <td>Row 7</td>
+      </tr>
+      <tr>
+        <td>Row 8</td>
+      </tr>
+      <tr>
+        <td>Row 9</td>
+      </tr>
+      <tr>
+        <td>Row 10</td>
+      </tr>
+      <tr>
+        <td>Row 11</td>
+      </tr>
+      <tr>
+        <td>Row 12</td>
+      </tr>
+      
+    </tbody>
+  </table>
           </li>
         </ul>
         <hr class="d-sm-none">
       </div>
       <div class="col-sm-4">
-        <div class="fakeimg">Fake Image</div> <!-- Boks. -->
         <div class="table-container">
-  <table class="table-scroll">
+  <table class="fixed_header">
     <thead>
       <tr>
-        <th>Head 1</th>
+        <th><h3>New Posts</h3></th>
       </tr>
     </thead>
-    <tbody class="body-half-screen">
+    <tbody>
+      <?php 
+      $posts = Database::getInstance()->query("SELECT * FROM posts ORDER BY created_at DESC");
+      
+      if ($posts->count()) {
+        foreach ($posts->results() as $p) {
+          echo '<tr>';
+          echo '<td>' . (new User($p->user_id))->data()->username . '</td>';
+          echo '<td>' . $p->title . '</td>';
+          echo '<td>' . $p->created_at . '</td>';
+          echo '</tr>';
+        }
+      } else {
+        echo '<div class="alert alert-danger"><strong></strong>No posts found!</div>';
+      }
+      ?>
+        
       <tr>
         <td>Row 1</td>
+      </tr>
+      <tr>
+        <td>Row 2</td>
+      </tr>
+      <tr>
+        <td>Row 3</td>
+      </tr>
+      <tr>
+        <td>Row 4</td>
+      </tr>
+      <tr>
+        <td>Row 5</td>
+      </tr>
+      <tr>
+        <td>Row 6</td>
+      </tr>
+      <tr>
+        <td>Row 7</td>
+      </tr>
+      <tr>
+        <td>Row 8</td>
+      </tr>
+      <tr>
+        <td>Row 9</td>
+      </tr>
+      <tr>
+        <td>Row 10</td>
+      </tr>
+      <tr>
+        <td>Row 11</td>
+      </tr>
+      <tr>
+        <td>Row 12</td>
+      </tr>
+      <td>Row 1</td>
+      </tr>
+      <tr>
+        <td>Row 2</td>
+      </tr>
+      <tr>
+        <td>Row 3</td>
+      </tr>
+      <tr>
+        <td>Row 4</td>
+      </tr>
+      <tr>
+        <td>Row 5</td>
+      </tr>
+      <tr>
+        <td>Row 6</td>
+      </tr>
+      <tr>
+        <td>Row 7</td>
+      </tr>
+      <tr>
+        <td>Row 8</td>
+      </tr>
+      <tr>
+        <td>Row 9</td>
+      </tr>
+      <tr>
+        <td>Row 10</td>
+      </tr>
+      <tr>
+        <td>Row 11</td>
+      </tr>
+      <tr>
+        <td>Row 12</td>
+      </tr>
+      <td>Row 1</td>
       </tr>
       <tr>
         <td>Row 2</td>

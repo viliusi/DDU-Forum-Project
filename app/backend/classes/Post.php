@@ -9,6 +9,25 @@ class Post
         }
     }
 
+    public static function edit($post_id, $title, $content, $image)
+    {
+        $fields = array(
+            'title' => $title,
+            'content' => $content,
+            'image' => $image
+        );
+        $where = array(
+            'field' => 'post_id',
+            'operator' => '=',
+            'value' => $post_id
+        );
+        if (!Database::getInstance()->update('posts', $fields, $where)) {
+            throw new Exception("Unable to edit the post.");
+        }
+        
+        Redirect::to('comments.php?post_id=' . $post_id);
+    }
+
     public static function getAllPosts()
     {
         $posts = Database::getInstance()->get('posts', array('post_id', '>', '0'));
