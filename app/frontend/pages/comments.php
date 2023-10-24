@@ -12,18 +12,22 @@
             <?php } ?>
 
             <?php
-            if ($user->isLoggedIn()) {
-                if ($post->user_id === $user->data()->uid) {
-            ?>
-                    <form action="" method="post" name="post delete">
-                        <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
-                        <input type="hidden" name="post_user_id" value="<?php new User($post->user_id) ?>">
-                        <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
-                        <input type="submit" class="btn-register" value="Delete" name="delete">
-                    </form>
-            <?php }
-            } ?>
-
+            if ($post->user_id === $user->data()->uid) { 
+                ?>
+                <form action="" method="post" name="post delete">
+                    <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
+                    <input type="hidden" name="post_user_id" value="<?php new User($post->user_id) ?>">
+                    <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
+                    <input type="submit" class="btn-register" value="Delete" name="delete">
+                </form>
+                <form action="" method="post" name="post edit">
+                    <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
+                    <input type="hidden" name="post_user_id" value="<?php new User($post->user_id) ?>">
+                    <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
+                    <input type="submit" class="btn-register" value="Edit" name="edit">
+                </form>
+            <?php } ?>
+                
             <br>
             <hr>
 
