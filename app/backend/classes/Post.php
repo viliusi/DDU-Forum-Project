@@ -2,7 +2,6 @@
 
 class Post
 {
-
     public static function create($fields = array())
     {
         if (!Database::getInstance()->insert('posts', $fields)) {
@@ -32,5 +31,6 @@ class Post
             return $post->first();
         }
     }
+
     // This file creates the post and gets all the posts in a channel and the post by id.
 }
