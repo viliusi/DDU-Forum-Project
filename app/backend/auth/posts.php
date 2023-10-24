@@ -1,9 +1,6 @@
 <?php
 require_once 'app/backend/core/Init.php';
 
-if (!$user->isLoggedIn()) {
-    Redirect::to('index.php');
-}
 if (!Input::get('id')) {
     Redirect::to('index.php');
 }

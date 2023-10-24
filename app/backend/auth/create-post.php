@@ -1,6 +1,8 @@
 <?php
 require_once 'app/backend/core/Init.php';
-
+if(!$user->isLoggedIn()) {
+    Redirect::to('login.php');
+}
 if (Input::exists()) {
     if (Token::check(Input::get('csrf_token'))) {
         $validate = new Validation();

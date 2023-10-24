@@ -27,35 +27,33 @@
 
             <h3>The Comment Section</h3>
 
-            <form action="" method="post" name="post comment">
-                <div class="form-group">
-                    <label for="content"></label>
-                    <input type="text" class="form-control" id="content" placeholder="Comment" name="content">
-                </div>
-                <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
-                <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
-                <input type="submit" class="btn-register" value="Post comment" name="post comment">
-            </form>
+            <?php if ($user->isLoggedIn()) { ?>
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label for="content"></label>
+                        <input type="text" class="form-control" id="content" placeholder="Comment" name="content">
+                    </div>
+                    <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
+                    <input type="submit" class="btn-register" value="Post comment">
+                    <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
+                </form> <?php } ?>
             <?php
             $commentsHotFix = Comment::getAllComments($post_id);
             if ($commentsHotFix->count()) {
                 foreach ($comments->results() as $c) {
                     echo '<div class="alert alert-info">' . $c->created_at . ' ' . '<strong>' . (new User($c->user_id))->data()->username . '</strong>: ' . $c->content . '</div>';
-                    if ($c->user_id === $user->data()->uid) {
-            ?> <form action="" method="post" name="comment delete">
-                            <input type="hidden" name="comment_user_id" value="<?php echo (new User($c->user_id))->data()->username ?>">
-                            <input type="hidden" name="comment_id" value="<?php echo $c->comment_id; ?>">
-                            <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
-                            <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
-                            <input type="submit" class="btn-register" value="Delete" name="delete">
-
-                        </form> <?php
-                            }
+            ?> <form action="" method="post">
+                        <input type="hidden" name="user_id" value="<?php echo (new User($c->user_id))->data()->username ?>">
+                        <input type="hidden" name="comment_id" value="<?php echo $c->id; ?>">
+                        <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
+                        <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
+                        <input type="submit" class="btn-register" value="Delete" name="delete">
+                    </form> <?php
                         }
                     } else {
                         echo '<div class="alert alert-danger"><strong></strong>No comments found!</div>';
                     }
-                                ?>
+                            ?>
         </div>
     </div>
 </div>
