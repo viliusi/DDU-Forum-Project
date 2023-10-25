@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    <div class="d-flex justify-content-center">
         <div class="jumbotron text-center" style="margin-bottom:0">
             <h1>Posts Overview in the <?php echo $channel->name; ?> channel</h1>
 
