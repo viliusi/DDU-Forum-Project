@@ -64,12 +64,11 @@
 
 .alternative_fixed_header{
     width: 100%;
-    table-layout: fixed;
     border-collapse: collapse;
 }
 
 .alternative_fixed_header tbody{
-    display:block;
+    display: block;
     width: 100%;
     overflow: auto;
     height: 600px;
@@ -89,8 +88,39 @@
     text-align: center;
     width: 200px;
 }
-.box_container{
-    border: 1px solid #ccc;
-    padding: 10px; /* Add padding to the inside of the border */
-    margin: 10px; /* Add margin to the outside of the border */
+
+.post-container {
+    border: 1px solid #ccc; /* Add a border */
+    padding: 10px; /* Add some padding */
+    width: 100%; /* Set the width to 100% */
+    height: auto; /* Set the height to auto for responsiveness */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.post-name-title {
+    font-weight: bold; /* Make the username bold */
+    font-size: large;
+}
+  
+.post-name-title span {
+    font-weight: normal; /* Make the title and hyphen normal */
+}
+
+.post-content {
+    font-size: medium; /* Set default font size */
+}
+
+.post-date {
+    font-size: small; /* Set default font size */
+    color: #aaa; /* Light grey text color */
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.post-date {
+    margin-right: 10px;
 }

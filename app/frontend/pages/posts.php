@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="d-flex justify-content-center">
+    <div class="row">
         <div class="jumbotron text-center" style="margin-bottom:0">
             <h1>Posts Overview in the <?php echo $channel->name; ?> channel</h1>
 
@@ -22,7 +22,7 @@
             echo '<option value="3" ' . ($category == 3 ? 'selected' : '') . '>Highest rating</option>';
             echo '</select>';
             echo '</div>';
-            echo '<button type="submit" class="btn btn-secondary">Change sort</button>';
+            echo '<button type="submit" class="btn btn-primary">Change sort</button>';
             echo '</form>';
 
             if ($category == 1) {
@@ -51,11 +51,8 @@
                     }
                     echo '<h4 class="card-title">' . $p->title . '</h4>';
                     echo '<p class="card-text">' . $p->content . '</p>';
-                    echo '<div class="d-flex justify-content-between">';
-                    echo '<div class="w-24 ml-5"></div>'; /* tom div til centrering */
-                    echo '<p class="card-text mx-auto">' . $p->created_at . '</p>';
-                    echo '<a href="comments.php?post_id=' . $p->post_id . '" class="btn btn-info">&#x1F5E8;</a>';
-                    echo '</div>';
+                    echo '<p class="card-text">' . $p->created_at . '</p>';
+                    echo '<a href="comments.php?post_id=' . $p->post_id . '" class="btn btn-primary">View Post</a>';
                     echo '</div>';
                     echo '</div>';
                 }

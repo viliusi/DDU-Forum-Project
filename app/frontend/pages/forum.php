@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="d-flex justify-content-center">
+    <div class="row">
         <div class="jumbotron text-center" style="margin-bottom:0">
             <h1>Channel Overview</h1>
             <p>Here you can see all the channels.</p>
@@ -12,7 +12,7 @@
                     echo '<div class="card-body">';
                     echo '<h4 class="card-title">' . $channel->name . '</h4>';
                     echo '<p class="card-text">' . $channel->description . '</p>';
-                    echo '<a href="posts.php?id=' . $channel->channel_id . '" class="btn btn-light">View Channel</a>';
+                    echo '<a href="posts.php?id=' . $channel->channel_id . '" class="btn btn-primary">View Channel</a>';
                     echo '</div>';
                     echo '</div>';
                 }
