@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    <div class="d-flex justify-content-center">
         <div class="jumbotron text-center" style="margin-bottom:0">
             <h4>Author: <?php echo (new User($post->user_id))->data()->username ?></h4>
             <h5><?php echo $post->created_at ?></h5>

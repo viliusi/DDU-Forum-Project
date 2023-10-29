@@ -57,7 +57,7 @@
 .fixed_header th, .fixed_header td {
     padding: 5px;
     text-align: center;
-    width: 200px;
+    width: 100%;
 }
 
 
@@ -83,7 +83,7 @@
     color:#fff;
 }
 
-.alternative_fixed_header th, .fixed_header td {
+.alternative_fixed_header th {
     padding: 5px;
     text-align: center;
     width: 200px;
@@ -123,4 +123,9 @@
   
 .post-date {
     margin-right: 10px;
+}
+
+.post-tr {
+    display: block;
+    width: 100%;
 }

@@ -6,8 +6,6 @@ if(!$user->isLoggedIn()) {
 
 $postid = Input::get('post_id');
 $channelid = Input::get('channel_id');
-echo $postid;
-echo $channelid;
 
 if (Input::exists()) {
     if (Token::check(Input::get('csrf_token'))) {
@@ -27,7 +25,7 @@ if (Input::exists()) {
             ),
 
             'image' => array(
-                'required' => false,
+                'optional' => true,
                 'min' => 2,
                 'max' => 255,
             ),
@@ -37,7 +35,6 @@ if (Input::exists()) {
             try {
                 if (isset($channelid))
                 {
-                    echo "create";
                     Post::create(array(
                         'title'  => Input::get('title'),
                         'content'  => Input::get('content'),
@@ -49,8 +46,13 @@ if (Input::exists()) {
                 }
                 else if (isset($postid))
                 {
-                    echo "edit";
-                    Post::edit($postid, Input::get('title'), Input::get('content'), Input::get('image'));
+                    if (Input::get('image') != null) {
+                        Post::edit($postid, Input::get('title'), Input::get('content'), Input::get('image'));
+                    }
+                    else {
+                        Post::editNoImage($postid, Input::get('title'), Input::get('content'));
+                    }
+                    
                     Session::flash('create-post-success', 'Thanks for editing post.');
                 }
                 
