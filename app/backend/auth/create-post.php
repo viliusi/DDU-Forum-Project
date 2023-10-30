@@ -33,7 +33,7 @@ if (Input::exists()) {
 
         if ($validate->passed()) {
             try {
-                if (isset($channelid))
+                if (isset($channelid) && !isset($postid))
                 {
                     Post::create(array(
                         'title'  => Input::get('title'),
