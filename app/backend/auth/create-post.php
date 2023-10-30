@@ -33,7 +33,7 @@ if (Input::exists()) {
 
         if ($validate->passed()) {
             try {
-                if (isset($channelid) && !isset($postid))
+                if (isset($channelid) && !isset($_GET['post_id']))
                 {
                     Post::create(array(
                         'title'  => Input::get('title'),
@@ -44,7 +44,7 @@ if (Input::exists()) {
                     ));
                     Session::flash('create-post-success', 'Thanks for posting.');
                 }
-                else if (isset($postid))
+                else 
                 {
                     if (Input::get('image') != null) {
                         Post::edit($postid, Input::get('title'), Input::get('content'), Input::get('image'));

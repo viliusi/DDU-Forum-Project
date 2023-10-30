@@ -1,11 +1,9 @@
 <div class="container" style="padding-top: 5%; padding-bottom: 5%;">
-    <?php
-    if (isset($_GET['post_id'])) {
+    <?php if (isset($_GET['post_id'])) {
         $heading = 'Edit Post "' . $_GET['post_id'] . '"';
     } else {
         $heading = 'Create Post';
-    }
-    ?>
+    }?>
     <h2><?php echo $heading; ?></h2>
     <form action="" method="post">
         <div class="form-group">
