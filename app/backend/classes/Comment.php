@@ -41,7 +41,7 @@ class Comment
     {
         $post = Post::getPostById($post_id);
 
-        if ($post->results()[0]->user_id !== $user_id) {
+        if ($post->user_id !== $user_id) {
             throw new Exception("Can't delete a post you didn't create.");
         }
         else {

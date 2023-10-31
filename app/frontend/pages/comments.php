@@ -18,7 +18,6 @@
                     <form action="" method="post" name="post delete">
                         <input type="hidden" name="post_type" value="post delete">
                         <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
-                        <input type="hidden" name="post_user_id" value="<?php (new User($post->user_id)) ?>">
                         <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
                         <input type="submit" class="btn-register" value="Delete" name="delete post">
                     </form>
@@ -54,7 +53,7 @@
             ?> <form action="" method="post">
                                 <input type="hidden" name="post_type" value="comment delete">
                                 <input type="hidden" name="user_id" value="<?php echo (new User($c->user_id))->data()->username ?>">
-                                <input type="hidden" name="comment_id" value="<?php echo $c->id; ?>">
+                                <input type="hidden" name="comment_id" value="<?php echo $c->comment_id; ?>">
                                 <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
                                 <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
                                 <input type="submit" class="btn-register" value="Delete" name="delete">

@@ -15,7 +15,7 @@ $comments = Comment::getAllComments($post_id);
 if (Input::exists()) {
     var_dump($_POST);
 
-    $postname = Input::get('post_name');
+    $postname = Input::get('post_type');
 
     if ($postname == 'post comment') {
         $validate = new Validation();
@@ -56,10 +56,6 @@ if (Input::exists()) {
         $validate = new Validation();
 
         $validation = $validate->check($_POST, array(
-            'comment_user_id' => array(
-                'required' => true,
-            ),
-
             'post_id' => array(
                 'required' => true,
             ),
@@ -91,18 +87,14 @@ if (Input::exists()) {
         $validation = $validate->check($_POST, array(
             'post_id' => array(
                 'required' => true,
-            ),
-
-            'post_user_id' => array(
-                'required' => true,
-            ),
+            )
         ));
 
         if ($validate->passed()) {
             try {
                 Comment::deletePost(Input::get('post_id'), $user->data()->uid);
 
-                Redirect::to('comments.php?post_id=' . Input::get('post_id'));
+                Redirect::to('index.php');
             } catch (Exception $e) {
                 die($e->getMessage());
             }
