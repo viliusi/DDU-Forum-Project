@@ -16,10 +16,11 @@
                 if ($post->user_id === $user->data()->uid) {
             ?>
                     <form action="" method="post" name="post delete">
+                        <input type="hidden" name="post_type" value="post delete">
                         <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
-                        <input type="hidden" name="post_user_id" value="<?php new User($post->user_id) ?>">
+                        <input type="hidden" name="post_user_id" value="<?php (new User($post->user_id)) ?>">
                         <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
-                        <input type="submit" class="btn-register" value="Delete" name="delete">
+                        <input type="submit" class="btn-register" value="Delete" name="delete post">
                     </form>
 
                     <a href="create-post.php?post_id=<?php echo $post_id; ?>" class="btn btn-primary">Edit</a>
@@ -38,6 +39,7 @@
                         <label for="content"></label>
                         <input type="text" class="form-control" id="content" placeholder="Comment" name="content">
                     </div>
+                    <input type="hidden" name="post_type" value="post comment">
                     <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
                     <input type="submit" class="btn-register" value="Post comment">
                     <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
@@ -50,6 +52,7 @@
                     if ($user->isLoggedIn()) {
                         if ($c->user_id === $user->data()->uid) {
             ?> <form action="" method="post">
+                                <input type="hidden" name="post_type" value="comment delete">
                                 <input type="hidden" name="user_id" value="<?php echo (new User($c->user_id))->data()->username ?>">
                                 <input type="hidden" name="comment_id" value="<?php echo $c->id; ?>">
                                 <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">

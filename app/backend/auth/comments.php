@@ -14,12 +14,10 @@ $comments = Comment::getAllComments($post_id);
 
 if (Input::exists()) {
     var_dump($_POST);
-    $pcomment = Input::get('post_comment');
-    $cdelete = Input::get('comment_delete');
-    $pdelete = Input::get('post_delete');
-    $pedit = Input::get('post_edit');
 
-    if (isset($pcomment)) {
+    $postname = Input::get('post_name');
+
+    if ($postname == 'post comment') {
         $validate = new Validation();
 
         $validation = $validate->check($_POST, array(
@@ -54,7 +52,7 @@ if (Input::exists()) {
         }
     }
 
-    if (isset($cdelete)) {
+    if ($postname == 'comment delete') {
         $validate = new Validation();
 
         $validation = $validate->check($_POST, array(
@@ -85,32 +83,32 @@ if (Input::exists()) {
                 echo '<div class="alert alert-danger"><strong>Validation error</strong>' . cleaner($error) . '</div>';
             }
         }
+    }
 
-        if (isset($pdelete)) {
-            $validate = new Validation();
+    if ($postname == 'post delete') {
+        $validate = new Validation();
 
-            $validation = $validate->check($_POST, array(
-                'post_id' => array(
-                    'required' => true,
-                ),
+        $validation = $validate->check($_POST, array(
+            'post_id' => array(
+                'required' => true,
+            ),
 
-                'post_user_id' => array(
-                    'required' => true,
-                ),
-            ));
+            'post_user_id' => array(
+                'required' => true,
+            ),
+        ));
 
-            if ($validate->passed()) {
-                try {
-                    Comment::deletePost(Input::get('post_id'), $user->data()->uid);
+        if ($validate->passed()) {
+            try {
+                Comment::deletePost(Input::get('post_id'), $user->data()->uid);
 
-                    Redirect::to('comments.php?post_id=' . Input::get('post_id'));
-                } catch (Exception $e) {
-                    die($e->getMessage());
-                }
-            } else {
-                foreach ($validate->errors() as $error) {
-                    echo '<div class="alert alert-danger"><strong>Validation error</strong>' . cleaner($error) . '</div>';
-                }
+                Redirect::to('comments.php?post_id=' . Input::get('post_id'));
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        } else {
+            foreach ($validate->errors() as $error) {
+                echo '<div class="alert alert-danger"><strong>Validation error</strong>' . cleaner($error) . '</div>';
             }
         }
     }
